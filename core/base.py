@@ -29,9 +29,12 @@ class PaymentMethod(ABC):
         """Template method: urutan langkah dijaga oleh kelas induk."""
         if jumlah <= 0:
             raise PembayaranGagal("Jumlah pembayaran harus lebih dari 0")
-        if not self.validasi(jumlah):
+        total = jumlah + self.biaya_admin(jumlah)
+        if not self.validasi(total):
             raise PembayaranGagal(
-                f"{self.nama} menolak pembayaran {rupiah(jumlah)}"
+                f"{self.nama} menolak pembayaran {rupiah(total)} "
+                f"(termasuk biaya admin)"
             )
-        return self.bayar(jumlah)
+        return self.bayar(total)
+
 
