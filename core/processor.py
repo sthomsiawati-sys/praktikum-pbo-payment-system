@@ -22,11 +22,14 @@ class PaymentProcessor:
         except PembayaranGagal as err:
             self.notifier.kirim(pelanggan, f"Pembayaran gagal: {err}")
             return False
- 
+
+        biaya = metode.biaya_admin(jumlah)
         self.riwayat.append((trx_id, metode.nama, jumlah))
         self.notifier.kirim(
             pelanggan,
-            f"Pembayaran {rupiah(jumlah)} via {metode.nama} berhasil. "
+            f"Pembayaran {rupiah(jumlah)} + biaya admin {rupiah(biaya)} "
+            f"(total {rupiah(jumlah + biaya)}) via {metode.nama} berhasil. "
             f"ID: {trx_id}",
         )
         return True
+    
