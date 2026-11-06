@@ -17,3 +17,7 @@ class EWallet(PaymentMethod):
     def bayar(self, jumlah: float) -> str:
         self.saldo -= jumlah
         return buat_id("EWL")
+
+    def biaya_admin(self, jumlah: float) -> float:
+        return jumlah * 0.01
+
