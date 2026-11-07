@@ -19,9 +19,8 @@ Inti sistem pembayaran untuk toko kampus online. Inti hanya mengenal **kontrak**
 5. [Percobaan 4: Sistem Plugin dengan Registry](#5-percobaan-4-sistem-plugin-dengan-registry)
 6. [Tugas Mandiri 1 sampai 4](#6-tugas-mandiri)
 7. [Tugas Bonus](#7-tugas-bonus)
-8. [Struktur Proyek Akhir](#8-struktur-proyek-akhir)
-9. [Cara Menjalankan](#9-cara-menjalankan)
-10. [Kesimpulan](#10-kesimpulan)
+8. [Cara Menjalankan](#9-cara-menjalankan)
+9. [Kesimpulan](#10-kesimpulan)
 
 ---
 
@@ -265,7 +264,7 @@ Catatan: `main.py` pada repositori ini adalah versi akhir (Percobaan 4 yang tela
 
 ---
 
-## 10. Kesimpulan
+## 9. Kesimpulan
 
 Praktikum ini menunjukkan bahwa sistem pembayaran dapat dirancang agar mudah berkembang dengan memisahkan inti dari ekstensinya. Inti hanya mengenal dua kontrak: `PaymentMethod` (ABC) untuk metode pembayaran dan `Notifier` (Protocol) untuk kanal notifikasi. Setiap metode pembayaran hadir sebagai plugin, sehingga QRIS dapat ditambahkan tanpa mengubah `main.py` dan `core/`, sesuai prinsip Open/Closed.
 
